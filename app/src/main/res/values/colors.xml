@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="status_bar_background">#3D4146</color>
+    <color name="toolbar_background">#24292D</color>
+    <color name="screen_background">#F6F8FA</color>
 </resources>
