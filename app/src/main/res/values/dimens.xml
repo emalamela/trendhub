@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="title_size">18sp</dimen>
+    <!-- App -->
+    <dimen name="toolbar_title_size">18sp</dimen>
+    <dimen name="spacing_small">4dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="spacing_medium_more">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_large_more">24dp</dimen>
+
+    <!-- Repository -->
+    <dimen name="repository_name_text_size">16sp</dimen>
+    <dimen name="repository_description_text_size">12sp</dimen>
+    <dimen name="repository_avatar_size">16dp</dimen>
+
 </resources>

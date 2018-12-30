@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TrendHub</string>
+
+    <!-- Repository -->
+    <string name="repository_name_separator">/</string>
+    <string name="repository_avatar_description">Avatar</string>
+
 </resources>

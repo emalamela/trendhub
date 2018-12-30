@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- App -->
     <color name="status_bar_background">#3D4146</color>
     <color name="toolbar_background">#24292D</color>
     <color name="screen_background">#F6F8FA</color>
+
+    <!-- Repository -->
+    <color name="repository_name_text_color">#2A67CF</color>
+    <color name="repository_description_text_color">#5A6068</color>
+    <color name="repository_icon_tint">#5A6068</color>
 </resources>

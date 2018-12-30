@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/spacing_large_more"
+    android:layout_marginTop="@dimen/spacing_medium_more"
+    android:layout_marginRight="@dimen/spacing_large_more"
+    android:layout_marginBottom="@dimen/spacing_medium_more"
+    tools:ignore="RtlHardcoded">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/spacing_large">
+
+        <ImageView
+            android:id="@+id/repositoryOwnerAvatar"
+            android:layout_width="@dimen/repository_avatar_size"
+            android:layout_height="@dimen/repository_avatar_size"
+            android:contentDescription="@string/repository_avatar_description"
+            app:layout_constraintTop_toTopOf="@id/repositoryFullName"
+            app:layout_constraintBottom_toBottomOf="@id/repositoryFullName"/>
+
+        <TextView
+            android:id="@+id/repositoryFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_medium"
+            app:layout_constraintLeft_toRightOf="@id/repositoryOwnerAvatar"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/repository_name_text_color"
+            android:textSize="@dimen/repository_name_text_size"
+            tools:text="Kotlin / anko" />
+
+        <TextView
+            android:id="@+id/repositoryDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium_more"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/repository_description_text_color"
+            android:textSize="@dimen/repository_description_text_size"
+            app:layout_constraintTop_toBottomOf="@id/repositoryFullName"
+            tools:text="Pleasant Android application development" />
+
+        <TextView
+            android:id="@+id/repositoryStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium_more"
+            android:drawableLeft="@drawable/ic_repository_star"
+            android:drawablePadding="@dimen/spacing_small"
+            android:gravity="center"
+            android:textSize="@dimen/repository_description_text_size"
+            app:layout_constraintTop_toBottomOf="@id/repositoryDescription"
+            tools:text="13,195" />
+
+        <TextView
+            android:id="@+id/repositoryForks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_large_more"
+            android:drawableLeft="@drawable/ic_repository_fork"
+            android:drawablePadding="@dimen/spacing_small"
+            android:gravity="center"
+            android:textSize="@dimen/repository_description_text_size"
+            app:layout_constraintLeft_toRightOf="@id/repositoryStars"
+            app:layout_constraintTop_toTopOf="@id/repositoryStars"
+            tools:text="1,045" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

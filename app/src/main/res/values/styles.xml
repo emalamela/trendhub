@@ -6,8 +6,9 @@
     </style>
 
     <style name="ToolbarTitle">
+        <item name="android:fontFamily">@font/consolas</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">@dimen/title_size</item>
+        <item name="android:textSize">@dimen/toolbar_title_size</item>
         <item name="android:textStyle">bold</item>
     </style>
 
