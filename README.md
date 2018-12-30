@@ -2,6 +2,11 @@
 
 A demo Android application to explore trending Github repositories, written in Kotlin and powered by Jetpack!
 
+<p align="center">
+  <img src="screenshots/Trendhub - Repository List.png" width="300"/>
+  <img src="screenshots/Trendhub - Repository Detail.png" width="300"/> 
+</p>
+
 ## Getting Started
 
 ### Running the app
