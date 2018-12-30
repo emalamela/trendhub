@@ -9,11 +9,14 @@
     android:layout_marginTop="@dimen/spacing_medium_more"
     android:layout_marginRight="@dimen/spacing_large_more"
     android:layout_marginBottom="@dimen/spacing_medium_more"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
     tools:ignore="RtlHardcoded">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:padding="@dimen/spacing_large">
 
         <ImageView
