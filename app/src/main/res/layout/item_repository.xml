@@ -21,30 +21,33 @@
             android:layout_width="@dimen/repository_avatar_size"
             android:layout_height="@dimen/repository_avatar_size"
             android:contentDescription="@string/repository_avatar_description"
-            app:layout_constraintTop_toTopOf="@id/repositoryFullName"
-            app:layout_constraintBottom_toBottomOf="@id/repositoryFullName"/>
+            app:layout_constraintBottom_toBottomOf="@id/repositoryFullName"
+            app:layout_constraintTop_toTopOf="@id/repositoryFullName" />
 
         <TextView
             android:id="@+id/repositoryFullName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_medium"
-            app:layout_constraintLeft_toRightOf="@id/repositoryOwnerAvatar"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/repository_name_text_color"
             android:textSize="@dimen/repository_name_text_size"
+            app:layout_constraintLeft_toRightOf="@id/repositoryOwnerAvatar"
+            app:layout_constraintRight_toRightOf="parent"
             tools:text="Kotlin / anko" />
 
         <TextView
             android:id="@+id/repositoryDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium_more"
             android:ellipsize="end"
             android:maxLines="3"
             android:textColor="@color/repository_description_text_color"
             android:textSize="@dimen/repository_description_text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/repositoryFullName"
             tools:text="Pleasant Android application development" />
 

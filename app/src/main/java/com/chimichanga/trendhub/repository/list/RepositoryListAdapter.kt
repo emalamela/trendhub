@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.chimichanga.trendhub.R
 import com.chimichanga.trendhub.common.glide.GlideApp
 import com.chimichanga.trendhub.common.model.Repository

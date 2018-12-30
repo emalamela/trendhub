@@ -3,25 +3,29 @@ package com.chimichanga.trendhub.repository.list
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.chimichanga.trendhub.common.model.Owner
 import com.chimichanga.trendhub.common.model.Repository
+import com.chimichanga.trendhub.common.pagination.Page
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import javax.inject.Inject
 
-class RepositoryListViewModel @Inject constructor() : ViewModel() {
+class RepositoryListViewModel @Inject constructor(githubWebService: GithubWebService) : ViewModel() {
 
     val trendingRepositories: LiveData<List<Repository>> by lazy {
-        MutableLiveData<List<Repository>>().apply {
-            postValue(listOf(
-                Repository(
-                    id = 1000,
-                    description = "Pleasant Android application development",
-                    fullname = "Kotlin/anko",
-                    owner = Owner("https://avatars2.githubusercontent.com/u/1446536?s=200&v=4"),
-                    stars = 13195,
-                    forks = 1045
-                ))
-            )
-        }
+        val field = MutableLiveData<List<Repository>>()
+        githubWebService.fetchAndroidTrendingRepositories()
+            .enqueue(object : Callback<Page<Repository>> {
+                override fun onResponse(call: Call<Page<Repository>>, response: Response<Page<Repository>>) {
+                    field.postValue(response.body()!!.items)
+                }
+
+                override fun onFailure(call: Call<Page<Repository>>, t: Throwable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+            })
+        field
     }
 
 }
