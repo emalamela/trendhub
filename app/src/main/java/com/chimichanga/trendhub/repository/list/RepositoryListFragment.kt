@@ -11,9 +11,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chimichanga.trendhub.R
 import com.chimichanga.trendhub.common.data.Loading
-import com.chimichanga.trendhub.common.data.Resource
 import com.chimichanga.trendhub.common.data.Success
 import com.chimichanga.trendhub.common.model.Repository
+import com.chimichanga.trendhub.repository.detail.RepositoryDetailFragment
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_repository_list.*
 import javax.inject.Inject
@@ -26,7 +26,7 @@ class RepositoryListFragment : DaggerFragment() {
         ViewModelProviders.of(this, viewModelFactory).get(RepositoryListViewModel::class.java)
     }
 
-    private val adapter: RepositoryListAdapter by lazy { RepositoryListAdapter() }
+    private val adapter: RepositoryListAdapter by lazy { RepositoryListAdapter { displayDetail(it) } }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_repository_list, container, false)
@@ -42,7 +42,7 @@ class RepositoryListFragment : DaggerFragment() {
 
         repositoryListRefreshLayout.isEnabled = false
 
-        viewModel.trendingRepositories.observe(this, Observer<Resource<List<Repository>>> {
+        viewModel.trendingRepositories.observe(this, Observer {
             when (it) {
                 is Loading -> repositoryListRefreshLayout.isRefreshing = true
                 is Success -> {
@@ -51,10 +51,18 @@ class RepositoryListFragment : DaggerFragment() {
                 }
                 is Error -> {
                     repositoryListRefreshLayout.isRefreshing = false
-                    Toast.makeText(requireContext(), "There was an error loading repositories, please try again", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), R.string.repository_list_error, Toast.LENGTH_SHORT).show()
                 }
             }
         })
+    }
+
+    private fun displayDetail(repository: Repository) {
+        requireActivity().supportFragmentManager!!.beginTransaction()
+            .addToBackStack(null)
+            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+            .add(R.id.mainContainer, RepositoryDetailFragment.newInstance(repository))
+            .commit()
     }
 
     companion object {

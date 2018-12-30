@@ -1,6 +1,7 @@
 package com.chimichanga.trendhub.common.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Repository(
     val id: Int,
@@ -9,6 +10,6 @@ data class Repository(
     val owner: Owner,
     @SerializedName("stargazers_count") val stars: Int,
     @SerializedName("forks_count") val forks: Int
-)
+) : Serializable
 
-data class Owner(@SerializedName("avatar_url") val avatarUrl: String)
+data class Owner(@SerializedName("avatar_url") val avatarUrl: String) : Serializable

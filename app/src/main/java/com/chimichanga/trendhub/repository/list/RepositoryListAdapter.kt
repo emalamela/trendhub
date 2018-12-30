@@ -14,11 +14,15 @@ import com.chimichanga.trendhub.common.glide.GlideApp
 import com.chimichanga.trendhub.common.model.Repository
 import kotlinx.android.synthetic.main.item_repository.view.*
 
-class RepositoryListAdapter : ListAdapter<Repository, RepositoryViewHolder>(RepositoryItemCallback) {
+typealias OnRepositoryClicked = (Repository) -> Unit
+
+class RepositoryListAdapter(private val onRepositoryClicked: OnRepositoryClicked) :
+    ListAdapter<Repository, RepositoryViewHolder>(RepositoryItemCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = RepositoryViewHolder(parent)
 
-    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) = holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) =
+        holder.bind(getItem(position), onRepositoryClicked)
 
 }
 
@@ -31,7 +35,8 @@ private object RepositoryItemCallback : ItemCallback<Repository>() {
 class RepositoryViewHolder(parent: ViewGroup) :
     RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_repository, parent, false)) {
 
-    fun bind(item: Repository) {
+    fun bind(item: Repository, onRepositoryClicked: OnRepositoryClicked) {
+
         itemView.apply {
             repositoryFullName.text = spanRepositoryName(item.fullname)
             repositoryDescription.text = item.description
@@ -44,6 +49,8 @@ class RepositoryViewHolder(parent: ViewGroup) :
                 .placeholder(R.color.repository_description_text_color)
                 .centerCrop()
                 .into(repositoryOwnerAvatar)
+
+            setOnClickListener { onRepositoryClicked(item) }
         }
     }
 

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.chimichanga.trendhub.common.di.annotation.ViewModelKey
 import com.chimichanga.trendhub.common.di.factory.ViewModelFactory
+import com.chimichanga.trendhub.repository.detail.RepositoryDetailViewModel
 import com.chimichanga.trendhub.repository.list.RepositoryListViewModel
 import dagger.Binds
 import dagger.Module
@@ -16,6 +17,11 @@ abstract class ViewModelFactoryModule {
     @IntoMap
     @ViewModelKey(RepositoryListViewModel::class)
     abstract fun bindsRepositoryViewModel(repositoryListViewModel: RepositoryListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RepositoryDetailViewModel::class)
+    abstract fun bindRepositoryDetailViewModel(repositoryDetailViewModel: RepositoryDetailViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

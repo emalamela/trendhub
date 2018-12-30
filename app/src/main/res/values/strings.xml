@@ -4,5 +4,6 @@
     <!-- Repository -->
     <string name="repository_name_separator">/</string>
     <string name="repository_avatar_description">Avatar</string>
+    <string name="repository_list_error">There was an error loading repositories, please try again</string>
 
 </resources>
