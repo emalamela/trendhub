@@ -5,26 +5,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chimichanga.trendhub.R
+import com.chimichanga.trendhub.R.id.repositoryListRecycler
 import com.chimichanga.trendhub.common.model.Owner
 import com.chimichanga.trendhub.common.model.Repository
+import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_repository_list.*
+import javax.inject.Inject
 
-class RepositoryListFragment : Fragment() {
+class RepositoryListFragment : DaggerFragment() {
 
-    private lateinit var viewModel: RepositoryListViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val viewModel: RepositoryListViewModel by lazy {
+        ViewModelProviders.of(this, viewModelFactory).get(RepositoryListViewModel::class.java)
+    }
+
     private val adapter: RepositoryListAdapter by lazy { RepositoryListAdapter() }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_repository_list, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RepositoryListViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,16 +40,9 @@ class RepositoryListFragment : Fragment() {
             it.adapter = adapter
         }
 
-        // TODO: Use real data
-        adapter.submitList(listOf(
-            Repository(
-                id = 1000,
-                description = "Pleasant Android application development",
-                fullname = "Kotlin/anko",
-                owner = Owner("https://avatars2.githubusercontent.com/u/1446536?s=200&v=4"),
-                stars = 13195,
-                forks = 1045)
-        ))
+        viewModel.trendingRepositories.observe(this, Observer<List<Repository>> {
+            adapter.submitList(it)
+        })
     }
 
     companion object {
