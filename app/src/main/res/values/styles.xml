@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Set to tint overscroll -->
         <item name="colorPrimary">@color/status_bar_background</item>
         <!-- Set to tint status bar -->
@@ -12,6 +12,13 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/toolbar_title_size</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RepositoryLanguageChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@color/repository_detail_chip_background_color</item>
+        <item name="checkedIconEnabled">false</item>
+        <item name="checkedIcon">@null</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

@@ -8,6 +8,8 @@ data class Repository(
     val description: String,
     @SerializedName("full_name") val fullname: String,
     val owner: Owner,
+    @SerializedName("html_url") val url: String,
+    val language: String?,
     @SerializedName("stargazers_count") val stars: Int,
     @SerializedName("forks_count") val forks: Int
 ) : Serializable

@@ -7,9 +7,15 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.chimichanga.trendhub.R
 import com.chimichanga.trendhub.common.di.factory.ViewModelFactory
+import com.chimichanga.trendhub.common.glide.GlideApp
 import com.chimichanga.trendhub.common.model.Repository
+import com.chimichanga.trendhub.repository.ui.formatRepositoryName
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.fragment_repository_detail.*
 import javax.inject.Inject
+import android.content.Intent
+import android.net.Uri
+
 
 class RepositoryDetailFragment : DaggerFragment() {
 
@@ -30,7 +36,27 @@ class RepositoryDetailFragment : DaggerFragment() {
     }
 
     private fun displayRepository(repository: Repository) {
-        // TODO: Implement
+        with(repository) {
+            GlideApp
+                .with(requireContext())
+                .load(owner.avatarUrl)
+                .fitCenter()
+                .into(repositoryDetailAvatar)
+
+            repositoryDetailFullName.text = formatRepositoryName(fullname)
+            repositoryDetailFullName.setOnClickListener {
+                // Launch Browser URL
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(repository.url)
+                val title = resources.getText(R.string.repository_detail_url_chooser)
+                startActivity(Intent.createChooser(intent, title))
+            }
+            repositoryDetailDescription.text = description
+            repositoryDetailLanguage.visibility = if (language != null) View.VISIBLE else View.GONE
+            repositoryDetailLanguage.text = language
+            repositoryDetailStars.text = stars.toString()
+            repositoryDetailForks.text = forks.toString()
+        }
     }
 
     companion object {

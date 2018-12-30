@@ -1,9 +1,13 @@
 <resources>
+    <!-- App -->
     <string name="app_name">TrendHub</string>
 
     <!-- Repository -->
     <string name="repository_name_separator">/</string>
     <string name="repository_avatar_description">Avatar</string>
     <string name="repository_list_error">There was an error loading repositories, please try again</string>
+
+    <!-- Repository Detail -->
+    <string name="repository_detail_url_chooser">Choose a Browser</string>
 
 </resources>

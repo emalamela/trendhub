@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chimichanga.trendhub.R
 import com.chimichanga.trendhub.common.glide.GlideApp
 import com.chimichanga.trendhub.common.model.Repository
+import com.chimichanga.trendhub.repository.ui.formatRepositoryName
 import kotlinx.android.synthetic.main.item_repository.view.*
 
 typealias OnRepositoryClicked = (Repository) -> Unit
@@ -38,7 +39,7 @@ class RepositoryViewHolder(parent: ViewGroup) :
     fun bind(item: Repository, onRepositoryClicked: OnRepositoryClicked) {
 
         itemView.apply {
-            repositoryFullName.text = spanRepositoryName(item.fullname)
+            repositoryFullName.text = formatRepositoryName(item.fullname)
             repositoryDescription.text = item.description
             repositoryStars.text = item.stars.toString()
             repositoryForks.text = item.forks.toString()
@@ -51,18 +52,6 @@ class RepositoryViewHolder(parent: ViewGroup) :
                 .into(repositoryOwnerAvatar)
 
             setOnClickListener { onRepositoryClicked(item) }
-        }
-    }
-
-    private fun spanRepositoryName(name: String): Spannable {
-        val nameSplit = name.split("/")
-        val nameToSpan = "${nameSplit[0]} / ${nameSplit[1]}"
-        return SpannableString(nameToSpan).apply {
-            setSpan(
-                StyleSpan(Typeface.BOLD),
-                nameToSpan.lastIndexOf(' '), nameToSpan.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
         }
     }
 

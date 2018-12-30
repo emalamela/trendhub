@@ -6,8 +6,11 @@
     <color name="toolbar_background">#24292D</color>
     <color name="screen_background">#F6F8FA</color>
 
-    <!-- Repository -->
+    <!-- Repository Item -->
     <color name="repository_name_text_color">#2A67CF</color>
     <color name="repository_description_text_color">#5A6068</color>
     <color name="repository_icon_tint">#5A6068</color>
+
+    <!-- Repository Detail -->
+    <color name="repository_detail_chip_background_color">@color/toolbar_background</color>
 </resources>

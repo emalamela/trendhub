@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    android:clickable="true"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    tools:ignore="KeyboardInaccessibleWidget, RtlHardcoded">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/repositoryDetailAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/repository_detail_image_size"
+        android:contentDescription="@string/repository_avatar_description"
+        android:foreground="@drawable/fg_image_overlay" />
+
+    <TextView
+        android:id="@+id/repositoryDetailFullName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:background="?attr/selectableItemBackground"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/repository_name_text_color"
+        android:textSize="20sp"
+        app:layout_constraintWidth_default="wrap"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repositoryDetailAvatar"
+        tools:text="Kotlin / anko" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/repositoryDetailLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="@id/repositoryDetailFullName"
+        app:layout_constraintTop_toBottomOf="@id/repositoryDetailFullName"
+        tools:text="Kotlin"
+        style="@style/RepositoryLanguageChip"/>
+
+    <TextView
+        android:id="@+id/repositoryDetailDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/repository_description_text_color"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/repositoryDetailFullName"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/repositoryDetailLanguage"
+        tools:text="Pleasant Android application development" />
+
+    <TextView
+        android:id="@+id/repositoryDetailStars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:drawableLeft="@drawable/ic_repository_star"
+        android:drawablePadding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="@id/repositoryDetailFullName"
+        app:layout_constraintTop_toBottomOf="@id/repositoryDetailDescription"
+        tools:text="13,195" />
+
+    <TextView
+        android:id="@+id/repositoryDetailForks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_big"
+        android:drawableLeft="@drawable/ic_repository_fork"
+        android:drawablePadding="@dimen/spacing_medium"
+        android:gravity="center"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@id/repositoryDetailStars"
+        app:layout_constraintTop_toTopOf="@id/repositoryDetailStars"
+        tools:text="1,045" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
