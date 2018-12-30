@@ -3,8 +3,8 @@ package com.chimichanga.trendhub
 import android.app.Activity
 import android.app.Application
 import com.chimichanga.trendhub.common.di.component.DaggerApplicationComponent
-import dagger.android.HasActivityInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
 import javax.inject.Inject
 
 class TrendhubApplication : Application(), HasActivityInjector {

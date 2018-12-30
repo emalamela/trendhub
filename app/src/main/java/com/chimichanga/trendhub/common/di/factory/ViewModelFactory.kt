@@ -27,7 +27,7 @@ class ViewModelFactory
      *
      * @throws IllegalArgumentException if no [Provider] is found for such [T]
      *
-     * @see [com.chimichanga.trendhub.common.di.module.ViewModelFactoryModule]
+     * @see com.chimichanga.trendhub.common.di.module.ViewModelFactoryModule
      */
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val creator = creators[modelClass] ?:

@@ -1,13 +1,14 @@
 package com.chimichanga.trendhub.common.di.module
 
 import com.chimichanga.trendhub.repository.list.GithubWebService
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.Retrofit
-import javax.inject.Singleton
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 
 @Module
@@ -34,6 +35,7 @@ abstract class NetworkingModule {
                 .client(okHttpClient)
                 .baseUrl(GITHUB_API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .build()
         }
 
