@@ -58,7 +58,7 @@ class RepositoryListFragment : DaggerFragment() {
     }
 
     private fun displayDetail(repository: Repository) {
-        requireActivity().supportFragmentManager!!.beginTransaction()
+        requireFragmentManager().beginTransaction()
             .addToBackStack(null)
             .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
             .add(R.id.mainContainer, RepositoryDetailFragment.newInstance(repository))
