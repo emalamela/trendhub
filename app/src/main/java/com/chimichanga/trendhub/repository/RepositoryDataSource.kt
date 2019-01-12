@@ -8,6 +8,8 @@ import javax.inject.Singleton
 
 /**
  * Data source for Github's trending Android repositories.
+ *
+ * Repository pattern for [Repository]. The name 'Repository' was taken for the model, 'DataSource' was chosen instead.
  */
 @Singleton
 class RepositoryDataSource @Inject constructor(private val githubWebService: GithubWebService) {
