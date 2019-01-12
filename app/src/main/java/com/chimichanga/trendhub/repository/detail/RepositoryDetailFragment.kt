@@ -9,7 +9,7 @@ import com.chimichanga.trendhub.R
 import com.chimichanga.trendhub.common.di.factory.ViewModelFactory
 import com.chimichanga.trendhub.common.glide.GlideApp
 import com.chimichanga.trendhub.common.model.Repository
-import com.chimichanga.trendhub.repository.ui.formatRepositoryName
+import com.chimichanga.trendhub.repository.util.formatRepositoryName
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_repository_detail.*
 import javax.inject.Inject

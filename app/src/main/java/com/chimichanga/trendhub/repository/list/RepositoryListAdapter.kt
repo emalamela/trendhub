@@ -1,9 +1,5 @@
 package com.chimichanga.trendhub.repository.list
 
-import android.graphics.Typeface
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
@@ -12,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chimichanga.trendhub.R
 import com.chimichanga.trendhub.common.glide.GlideApp
 import com.chimichanga.trendhub.common.model.Repository
-import com.chimichanga.trendhub.repository.ui.formatRepositoryName
+import com.chimichanga.trendhub.repository.util.formatRepositoryName
 import kotlinx.android.synthetic.main.item_repository.view.*
 
 typealias OnRepositoryClicked = (Repository) -> Unit

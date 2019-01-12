@@ -1,4 +1,4 @@
-package com.chimichanga.trendhub.repository.ui
+package com.chimichanga.trendhub.repository.util
 
 import android.graphics.Typeface
 import android.text.Spannable
