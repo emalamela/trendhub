@@ -15,9 +15,9 @@ class Loading<T : Any> : Resource<T>()
  *
  * @param E type of the optional [payload]
  */
-class Error<T : Any, E : Any>(val payload: E? = null) : Resource<T>()
+data class Error<T : Any, E : Any>(val payload: E? = null) : Resource<T>()
 
 /**
  * Represents a [Resource] which was successfully retrieved. Carries [data] of type [T].
  */
-class Success<T : Any>(val data: T) : Resource<T>()
+data class Success<T : Any>(val data: T) : Resource<T>()

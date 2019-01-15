@@ -28,10 +28,10 @@ class RepositoryDetailViewModelTest {
     @Test
     fun `set repository to detail and get that same repository as value`() {
         val repositoryToDetail = mock(Repository::class.java)!!
-        val repositoryViewModelToTest = RepositoryDetailViewModel()
-        repositoryViewModelToTest.setRepositoryToDetail(repositoryToDetail)
+        val viewModelToTest = RepositoryDetailViewModel()
+        viewModelToTest.setRepositoryToDetail(repositoryToDetail)
 
-        assert(repositoryViewModelToTest.repositoryToDetail.value == repositoryToDetail)
+        assert(viewModelToTest.repositoryToDetail.value == repositoryToDetail)
     }
 
     @Test
@@ -47,10 +47,10 @@ class RepositoryDetailViewModelTest {
         `when`(lifecycle.lifecycle).thenReturn(lifecycleRegistry)
 
         val repositoryToDetail = mock(Repository::class.java)!!
-        val repositoryViewModelToTest = RepositoryDetailViewModel()
-        repositoryViewModelToTest.setRepositoryToDetail(repositoryToDetail)
+        val viewModelToTest = RepositoryDetailViewModel()
+        viewModelToTest.setRepositoryToDetail(repositoryToDetail)
 
-        repositoryViewModelToTest.repositoryToDetail.observe(lifecycle, Observer<Repository> {
+        viewModelToTest.repositoryToDetail.observe(lifecycle, Observer {
             assert(it == repositoryToDetail)
         })
     }
