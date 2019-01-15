@@ -42,6 +42,7 @@ ext {
     mockito_version = '2.13.0'
     test_runner_version = '1.1.1'
     espresso_version = '3.1.1'
+    android_core_testing_version = '2.0.0'
 }
 
 dependencies {
@@ -94,6 +95,7 @@ dependencies {
     // Testing
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "androidx.arch.core:core-testing:$android_core_testing_version"
     androidTestImplementation "androidx.test:runner:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
 }
